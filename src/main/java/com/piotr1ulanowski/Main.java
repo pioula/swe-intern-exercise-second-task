@@ -1,7 +1,10 @@
 package com.piotr1ulanowski;
 
+import com.piotr1ulanowski.Server.Server;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Server server = new Server(args[1]);
+        server.startSimulation();
     }
 }
