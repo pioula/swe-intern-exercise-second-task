@@ -1,13 +1,13 @@
-<h1 align="center">Welcome to SWE Intern Exercise First Task 👋</h1>
+<h1 align="center">Welcome to SWE Intern Exercise Second Task 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> This project is an implementation of the first task from the Supercell 
+> This project is an implementation of the second task from the Supercell 
 > <a href="https://sc-id-intern-exercise.s3.us-east-1.amazonaws.com/intern.pdf"> SWE Intern Exercise</a>
 
 
-### 🏠 [Homepage](https://github.com/pioula/swe-intern-exercise-first-task)
+### 🏠 [Homepage](https://github.com/pioula/swe-intern-exercise-second-task)
 
 ## Install
 
