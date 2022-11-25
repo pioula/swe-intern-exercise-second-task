@@ -10,12 +10,11 @@ public class CommandJSONParser implements JSONParserI {
 
     public CommandJSONParser() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(CommandI.class, new CommandDeserializer());
         this.gson = gsonBuilder.create();
     }
 
     @Override
-    public CommandI deserialize(String json) {
-        return gson.fromJson(json, CommandI.class);
+    public CommandUpdate deserialize(String json) {
+        return gson.fromJson(json, CommandUpdate.class);
     }
 }

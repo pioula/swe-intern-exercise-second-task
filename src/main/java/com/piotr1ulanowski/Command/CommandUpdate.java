@@ -6,7 +6,7 @@ import com.piotr1ulanowski.User.UserProperty;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class CommandUpdate implements CommandI {
+public class CommandUpdate {
     private final String user;
     private final Integer timestamp;
     private final HashMap<String, String> values;
@@ -18,7 +18,6 @@ public class CommandUpdate implements CommandI {
     }
 
     // Removing users from friend lists of each user.
-    @Override
     public void execute(ConcurrentHashMap<String, User> users) {
         users.putIfAbsent(user, new User());
 
