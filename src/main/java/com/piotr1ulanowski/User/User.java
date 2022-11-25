@@ -1,40 +1,19 @@
 package com.piotr1ulanowski.User;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class User {
-    private HashSet<String> friends; // Stores friend IDs
-    private HashMap<String, UserProperty> properties;
+    private final ConcurrentHashMap<String, UserProperty> properties;
 
-    public HashMap<String, UserProperty> getProperties() {
-        return properties;
-    }
-
-    // Returns true if value was already present.
-    public Boolean addProperty(String name, UserProperty value) {
-        if (!properties.containsKey(name) || properties.get(name).getTimestamp() < value.getTimestamp()) {
-            properties.put(name, value);
-            return false;
+    // Updates property if given value has a newer timestamp.
+    public void addProperty(String name, UserProperty value) {
+        UserProperty oldProperty = properties.putIfAbsent(name, value);
+        if (oldProperty != null) {
+            oldProperty.setIfNewer(value);
         }
-
-        return true;
-    }
-
-    public void addFriend(String friendId) {
-        friends.add(friendId);
-    }
-
-    public void removeFriend(String friendId) {
-        friends.remove(friendId);
-    }
-
-    public HashSet<String> getFriends() {
-        return friends;
     }
 
     public User() {
-        friends = new HashSet<>();
-        properties = new HashMap<>();
+        properties = new ConcurrentHashMap<>();
     }
 }
