@@ -2,9 +2,9 @@ package com.piotr1ulanowski.Command;
 
 import com.piotr1ulanowski.User.User;
 
-import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public interface CommandI {
-    Optional<String> execute(HashMap<String, User> users);
+    void execute(ConcurrentHashMap<String, User> users);
 }
