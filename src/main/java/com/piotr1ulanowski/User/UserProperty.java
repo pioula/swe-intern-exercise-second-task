@@ -4,17 +4,13 @@ import java.util.concurrent.Semaphore;
 
 public class UserProperty {
     private String name;
-    private Integer timestamp;
-    private final Semaphore forUpdate;
+    private transient Integer timestamp;
+    private final transient Semaphore forUpdate;
 
     public UserProperty(String name, Integer timestamp) {
         this.name = name;
         this.timestamp = timestamp;
         this.forUpdate = new Semaphore(1);
-    }
-
-    public Integer getTimestamp() {
-        return timestamp;
     }
 
     public String getName() {

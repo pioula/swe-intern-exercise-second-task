@@ -16,4 +16,8 @@ public class User {
     public User() {
         properties = new ConcurrentHashMap<>();
     }
+
+    public ConcurrentHashMap<String, UserProperty> getProperties() {
+        return properties;
+    }
 }
