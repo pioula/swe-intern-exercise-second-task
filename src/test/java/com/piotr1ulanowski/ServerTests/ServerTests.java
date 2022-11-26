@@ -32,29 +32,11 @@ public class ServerTests {
     @DisplayName("Example tests")
     @Test
     void exampleTests() throws IOException {
-        final String TEST_INPUT_PATH_PREFIX = "src/test/ex1/input";
-        final String TEST_OUTPUT_PATH_PREFIX = "src/test/ex1/output";
+        final String TEST_INPUT_PATH_PREFIX = "src/test/ex2/input";
+        final String TEST_OUTPUT_PATH_PREFIX = "src/test/ex2/output";
         final String TEST_FILE_SUFFIX = ".txt";
         final String INPUT_FLAG = "-i";
-        final int NUMBER_OF_TESTS = 3;
-
-        for (int i = 1; i <= NUMBER_OF_TESTS; i++) {
-            Main.main(new String[]{INPUT_FLAG, TEST_INPUT_PATH_PREFIX + i + TEST_FILE_SUFFIX});
-            String correctOutput = new String(Files.readAllBytes(
-                    Paths.get(TEST_OUTPUT_PATH_PREFIX + i + TEST_FILE_SUFFIX)));
-            assertEquals(OUT_CONTENT.toString(), correctOutput);
-            OUT_CONTENT.reset();
-        }
-    }
-
-    @DisplayName("My tests")
-    @Test
-    void myTests() throws IOException {
-        final String TEST_INPUT_PATH_PREFIX = "src/test/my_tests/input";
-        final String TEST_OUTPUT_PATH_PREFIX = "src/test/my_tests/output";
-        final String TEST_FILE_SUFFIX = ".txt";
-        final String INPUT_FLAG = "-i";
-        final int NUMBER_OF_TESTS = 2;
+        final int NUMBER_OF_TESTS = 1;
 
         for (int i = 1; i <= NUMBER_OF_TESTS; i++) {
             Main.main(new String[]{INPUT_FLAG, TEST_INPUT_PATH_PREFIX + i + TEST_FILE_SUFFIX});
