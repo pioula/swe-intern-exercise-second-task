@@ -1,5 +1,8 @@
 package com.piotr1ulanowski.ServerTests;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.piotr1ulanowski.Main;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,6 +20,7 @@ public class ServerTests {
     private static final ByteArrayOutputStream ERR_CONTENT = new ByteArrayOutputStream();
     private static final PrintStream ORIGINAL_OUT = System.out;
     private static final PrintStream ORIGINAL_ERR = System.err;
+    private static final Gson gson = new Gson();
 
     @BeforeAll
     public static void setUpStreams() {
@@ -42,7 +46,8 @@ public class ServerTests {
             Main.main(new String[]{INPUT_FLAG, TEST_INPUT_PATH_PREFIX + i + TEST_FILE_SUFFIX});
             String correctOutput = new String(Files.readAllBytes(
                     Paths.get(TEST_OUTPUT_PATH_PREFIX + i + TEST_FILE_SUFFIX)));
-            assertEquals(OUT_CONTENT.toString(), correctOutput);
+            assertEquals(gson.fromJson(OUT_CONTENT.toString(), JsonObject.class),
+                    gson.fromJson(correctOutput, JsonObject.class));
             OUT_CONTENT.reset();
         }
     }

@@ -7,17 +7,10 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandUpdate implements Runnable {
-    private final String user;
-    private final Integer timestamp;
-    private final HashMap<String, String> values;
+    private String user;
+    private Integer timestamp;
+    private HashMap<String, String> values;
     private transient ConcurrentHashMap<String, User> users;
-    public CommandUpdate(final String user, final Integer timestamp,
-                         final HashMap<String, String> values) {
-        this.user = user;
-        this.timestamp = timestamp;
-        this.values = values;
-        users = new ConcurrentHashMap<>();
-    }
 
     // Removing users from friend lists of each user.
     @Override

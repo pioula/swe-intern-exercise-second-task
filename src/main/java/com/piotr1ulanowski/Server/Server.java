@@ -28,6 +28,7 @@ public class Server {
         while (reader.hasLine()) {
             CommandUpdate command = commandParser.deserialize(reader.readLine());
             command.setUsers(users);
+            command.run();
             threads.add(new Thread(command));
             threads.get(threads.size() - 1).start();
         }
